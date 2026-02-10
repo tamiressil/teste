@@ -1,19 +1,3 @@
-def process_interfaces(vendor_a, interface_a, vendor_b, interface_b, type_interface_a, type_interface_b, form):
-    # 1. Primeiro rodamos a VALIDAÇÃO (Se houver erro, ele avisa o form)
-    validate_interface_format(vendor_a, interface_a, type_interface_a, 'interface_a', form)
-    validate_interface_format(vendor_b, interface_b, type_interface_b, 'interface_b', form)
-
-    # 2. SÓ formatamos e colocamos no cleaned_data se NÃO houver erros
-    if not form.errors:
-        form.cleaned_data['interface_a'] = format_interface(vendor_a, type_interface_a, interface_a)
-        form.cleaned_data['interface_b'] = format_interface(vendor_b, type_interface_b, interface_b)
-
-
-        import re
-
-def validate_interface_format(vendor, interface, type_interface, interface_name, form):
-    # 1. Se estiver vazio, não faz nada
-    if not vendor or not interface or not type_interface:
         return
 
     # 2. PADRONIZAÇÃO (O segredo para não barrar o que é certo)
